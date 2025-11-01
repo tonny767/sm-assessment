@@ -1,4 +1,4 @@
-# Running the On-Premise Client File Download System
+# Home Assignment Step by Step How to Run the Code
 
 ## **1. Start the Server**
 
@@ -14,15 +14,22 @@
 4. You might get firewall request, just allow any.
 
 ## **2. Start the Client**
-Open another terminal (I am using git bash)
+
+1. Open another terminal (I am using git bash)
 
 You can either set environment variables first or use command below.
 
-Navigate to the client folder and start the client:
+2. Navigate to the client folder and start the client:
    ```bash
    cd client
+   ```
+   
+3. Run the client:
+   ```bash
    CLIENT_ID=client1 SERVER_URL=http://localhost:8080 go run main.go
    ```
+   
+4. It will trigger the server to create or update clients.json in /server and poll the server every 10 seconds to make sure its active
 
 ## **3. Trigger a Download**
 make an API call or curl from the GIT bash terminal.
