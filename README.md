@@ -28,7 +28,7 @@ You can either set environment variables first or use command below.
    ```bash
    CLIENT_ID=client1 SERVER_URL=http://localhost:8080 go run main.go
    ```
-   
+   Change the CLIENT_ID onto whatever client you want to activate and it will register/reactivate itself in ./server/clients.json
 4. It will trigger the server to create or update clients.json in /server and poll the server every 10 seconds to make sure its active
 
 ## **3. Trigger a Download**
@@ -37,14 +37,18 @@ make an API call or curl from the GIT bash terminal.
    ```bash
    curl "http://localhost:8080/trigger?client_id=client1"
    ```
+
 The client will upload its file to the server after 10 seconds (on poll).
 After triggered, check for the server whether file is downloaded successfully or not
+
+Change the client_id onto whichever client is active at the moment e.g. client2, client3
 
 ## **4. Check Uploaded File**
 Uploaded files are saved in the server directory:
    ```bash
    ./downloads/client1_file.txt
    ```
+file downloaded will vary based on which client server is triggering from, format is CLIENTNAME_file.txt
 
 ## **5. Notes**
 **- Make sure file_to_download.txt exists in the main folder**
